@@ -1,15 +1,14 @@
 # -*- coding:utf-8 -*- 
 # author:勤奋的大眼仔
 # time:2020/6/18
-'''城市各个区域 每月平均房价'''
+'''爬取安居客网站深圳城市每个区域过去9年每月的房价信息'''
+'''网页格式为为http://www.anjuke.com/fangjia/shenzhen2020/longgang   需要根据年份和区域分页爬取，年份偏移量为1'''
+
 import re
 import requests
 import json
 import time
 from requests.exceptions import RequestException
-
-'''网页格式为为http://www.anjuke.com/fangjia/shenzhen2020/longgang   需要根据年份和区域分页爬取，年份偏移量为1'''
-
 
 def get_one_page(url):
     '''获取网页源代码'''
