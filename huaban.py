@@ -43,6 +43,7 @@ def load_image(html):
             fp.write(req.content)
 
 def main(page_number):
+    '''输入查询条件'''
     html = get_one_page('https://huaban.com/search/?q=新西林景观')
     q = re.findall('app.page.*?= "/search/\?q=(.*?)"', html)[0]
     url = f'https://huaban.com/search/?q={q}'
