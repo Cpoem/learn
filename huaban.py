@@ -12,7 +12,7 @@ def get_one_page(url):
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0(Macintosh;Intel Mac OS X 10_11_4) AppleWebkit/537.36(KHTNML,like Gecko)Chrome/52.0.2743.116 Safari/537.36'}  # 请求头
-        data = {'username': 'user_chen', 'pwd': 'chen2314'}
+        data = {'username': 'xxx', 'pwd': 'xxx'}
         response = requests.get(url, headers=headers, data=data)
         response.encoding = 'utf-8'
         if response.status_code == 200:  # 状态码为200，请求成功
@@ -38,22 +38,22 @@ def load_image(html):
     for image in images:
         req = requests.get(image['url'])
         imageName = image["id"] + "." + image["type"]
-        path = r"C:\HUABAN\\"
+        path = r"C:\HUABAN\早餐\\"
         with open(path + imageName, 'wb') as fp:
             fp.write(req.content)
-
 
 def main(page_number):
     html = get_one_page('https://huaban.com/search/?q=新西林景观')
     q = re.findall('app.page.*?= "/search/\?q=(.*?)"', html)[0]
     url = f'https://huaban.com/search/?q={q}'
     p_url = f'{url}&page={page_number}&per_page=20&wfl=1'
+    print(p_url)
     p_html = get_one_page(p_url)
     load_image(p_html)
 
 
 if __name__ == '__main__':
-    for i in range(1, 10, 1):
+    for i in range(1, 20, 1):
         main(page_number=i)
-        time.sleep(5)
+        time.sleep(15)
 
