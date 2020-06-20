@@ -38,7 +38,7 @@ def load_image(html):
     for image in images:
         req = requests.get(image['url'])
         imageName = image["id"] + "." + image["type"]
-        path = r"C:\HUABAN\早餐\\"
+        path = r"C:\HUABAN\景观\\"
         with open(path + imageName, 'wb') as fp:
             fp.write(req.content)
 
