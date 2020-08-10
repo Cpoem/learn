@@ -16,7 +16,7 @@ def get_one_page(url):
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0(Macintosh;Intel Mac OS X 10_11_4) AppleWebkit/537.36(KHTNML,like Gecko)Chrome/52.0.2743.116 Safari/537.36'}  # 请求头
-        data = {'username': '手机5421502678865', 'pwd': 'anjvke'}
+        data = {'username': 'your_name', 'pwd': 'your_password'}
         response = requests.get(url, headers=headers, data=data)
         response.encoding = 'utf-8'
         if response.status_code == 200:  # 状态码为200，请求成功
